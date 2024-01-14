@@ -1,1 +1,12 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  --font-press-start:'Press Start 2P';
+  --font-inter:'Inter';
+  --font-weight-main-text:400;
+  --font-weight-title-text:700;
+  --main-background-color: #ffffff;
+  --main-text-color:#000000;
+  --background-image-page:repeating-linear-gradient(#d3d3d3 0 2px, transparent 2px 4px),
+  repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px),
+  linear-gradient(#e7e7e7 0% 0.01%, #1a1a1a 100%);
+}
