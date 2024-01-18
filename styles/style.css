@@ -200,7 +200,7 @@ html {
 }
 
 .contrast {
-  filter: contrast(200%) blur(0.1);
+  filter: invert(1) brightness(100%) saturate(100%) hue-rotate(20deg);
 }
 
 .blur {
