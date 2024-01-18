@@ -161,16 +161,23 @@ html {
 }
 
 .image__container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: clamp(320px, 100vw, 696px);
-  background-position: right;
-  background-size: cover;
+  aspect-ratio: 1/1;
+}
+
+.img {
+  width: 100%;
+  object-fit: cover;
+  object-position: right;
   aspect-ratio: 1/1;
 }
 
 .image {
+  position: absolute;
   display: flex;
   justify-content: end;
   align-items: start;
@@ -189,45 +196,37 @@ html {
 }
 
 .bright {
-  background-image: url(../images/car.png);
   filter: brightness(200%);
 }
 
 .contrast {
-  background-image: url(../images/photo_2024-01-18_21-46-22.jpg);
-  filter: contrast(200%);
+  filter: contrast(200%) blur(0.1);
 }
 
 .blur {
-  background-image: url(../images/photo_2024-01-18_19-39-58.jpg);
   filter: blur(0.1);
 }
 
 .opacity {
-  background-image: url(../images/photo_2023-11-30_09-39-00.jpg);
   filter: opacity(0.3);
 }
 
 .grayscale {
-  background-image: url(../images/photo_2024-01-18_19-33-53.jpg);
-  background-position: center;
+  object-position: center;
   filter: grayscale(0.8);
 }
 
 .saturate {
-  background-image: url(../images/photo_2024-01-18_19-32-10.jpg);
-  background-position: center;
+  object-position: center;
   filter: saturate(158%);
 }
 
 .hue-rotate {
-  background-image: url(../images/photo_2024-01-18_19-30-13.jpg);
   filter: hue-rotate(-90deg);
 }
 
 .sepia {
-  background-image: url(../images/photo_2024-01-18_22-08-26.jpg);
-  background-position: center;
+  object-position: center;
   filter: sepia(80%);
 }
 @media (width<375px) {
@@ -236,13 +235,13 @@ html {
   }
 }
 
-.hue-rotate .image,
-.saturate .image,
-.grayscale .image {
+.hue-rotate + .image,
+.saturate + .image,
+.grayscale + .image {
   text-transform: lowercase;
 }
 
-.sepia .image {
+.sepia + .image {
   text-transform: lowercase;
   mix-blend-mode: difference;
 }
@@ -557,10 +556,6 @@ dialog::backdrop {
 .dialog__button:hover::after {
   transition: transform 0.5s ease-in-out;
   transform: translate(0);
-}
-
-.dialog__button:focus-visible {
-  outline: none;
 }
 
 .dialog__button:focus-visible {
