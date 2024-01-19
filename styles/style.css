@@ -202,7 +202,7 @@ button:focus-visible {
 }
 
 .contrast {
-  filter: contrast(200%), blur(0.5);
+  filter: invert(1) brightness(100%) saturate(100%) hue-rotate(20deg);
 }
 
 .blur {
@@ -312,7 +312,6 @@ button:focus-visible {
   justify-content: start;
   align-items: center;
   margin-inline-end: 3px;
-  border: transparent;
   border: 2px solid transparent;
   transition: border 0.3s ease;
 }
