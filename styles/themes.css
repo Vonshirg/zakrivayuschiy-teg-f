@@ -43,3 +43,9 @@
   --button-text-color:#00CC14;
   }
 }
+
+@media(width<375px){
+.theme-dark .card:nth-child(3) .article, .theme-dark .card:nth-child(4) .article{
+    padding: 25px 30px 25px 25px; 
+}
+}
