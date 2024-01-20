@@ -53,9 +53,21 @@
   }
 }
 
-@media (width<375px) {
+@media (width<376px) {
   .theme-dark .card:nth-child(3) .article,
   .theme-dark .card:nth-child(4) .article {
     padding: 25px 30px 25px 25px;
+  }
+}
+
+@media (width<376px) {
+  .theme-dark .card:nth-child(8) .article {
+    padding-right: 26px;
+  }
+}
+
+@media(width<376px){
+  .theme-dark .bottom-dialog{
+    padding: 47px 0px clamp(102px, 102px, 106px) 0px;
   }
 }

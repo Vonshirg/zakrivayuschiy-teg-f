@@ -19,7 +19,7 @@
   flex-direction: column;
   align-items: center;
   color: var(--main-text-color);
-  font-family: var(--font-inter), Arial, sans-serif;
+  font-family: var(--font-card-text), Arial, sans-serif;
   background-color: var(--main-background-color);
   background-image: var(--background-image-page);
   background-position: center;
@@ -31,26 +31,37 @@
 
 .header {
   padding-top: 100px;
-  padding-bottom: 98px;
+  padding-bottom: 100px;
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 .header__cover {
   display: grid;
   justify-content: center;
   align-items: center;
-  width: clamp(300px, 100vw, 696px);
+  width: clamp(300px, 100%, 696px);
   border: 2px solid var(--main-text-color);
-  padding-top: clamp(120px, 25vw, 136px);
-  padding-bottom: 25px;
-  font-family: "Press Start 2P", Arial, sans-serif;
+  padding-top: 120px;
+  padding-bottom: 23px;
+  font-family: var(--font-special), Arial, sans-serif;
   font-weight: var(--font-weight-main-text);
   background-color: var(--main-background-color);
+}
+
+@media(width>375px){
+  .header__cover{
+    padding-top: 136px;
+  }
 }
 
 .main-title {
   padding-bottom: 20px;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   text-transform: uppercase;
+  justify-self: center;
 }
 
 .sub-title {
@@ -117,7 +128,7 @@ button:focus-visible {
   background-color: var(--main-text-color);
   transition: transform 0.3s ease;
   transform: scale(0);
-  transform-origin: left;
+  transform-origin: left bottom;
 }
 
 .theme-menu__button:focus-visible {
@@ -142,11 +153,19 @@ button:focus-visible {
   animation: arrow 0.5s ease-in-out alternate infinite;
 }
 
+.main{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .card {
   padding-bottom: 50px;
   color: var(--main-text-color);
   font-family: "Inter", Arial, sans-serif;
-}
+  width: clamp(320px, 100%, 696px);
+  }
 
 .card:nth-last-child(2) {
   padding-bottom: 0;
@@ -155,6 +174,7 @@ button:focus-visible {
 .section__title {
   border: 2px solid var(--main-text-color);
   border-bottom: none;
+  max-width: 696px;
   padding: 4px 10px;
   font-weight: var(--font-weight-title-text);
   font-size: 18px;
@@ -167,7 +187,7 @@ button:focus-visible {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(320px, 100vw, 696px);
+  width: clamp(320px, 100%, 696px);
   border: 2px solid var(--main-text-color);
   aspect-ratio: 1/1;
 }
@@ -184,13 +204,11 @@ button:focus-visible {
   display: flex;
   justify-content: end;
   align-items: start;
-  width: 100%;
-  height: 100%;
-  padding-top: 25px;
-  padding-right: clamp(10px, 0.4vw, 25px);
+  top: 25px;
+  right: clamp(10px, 0.4vw, 25px);
   opacity: 0.5;
   color: var(--main-text-color);
-  font-family: "Press Start 2P", "fantasy", sans-serif;
+  font-family: var(--font-special), "fantasy", sans-serif;
   font-weight: 400;
   font-size: 14px;
   text-transform: uppercase;
@@ -233,18 +251,6 @@ button:focus-visible {
   filter: sepia(80%);
 }
 
-@media (width<376) {
-  .card:nth-last-child(3) .article {
-    padding: 25px 29px 25px 25px;
-  }
-}
-
-@media (width<376) {
-  .card:nth-last-child(2) .article {
-    padding: 25px 26px 25px 25px;
-  }
-}
-
 .hue-rotate + .image,
 .saturate + .image,
 .grayscale + .image {
@@ -258,7 +264,7 @@ button:focus-visible {
 
 @media (width>375px) {
   .image {
-    padding-right: 25px;
+    right: 25px;
   }
 }
 
@@ -277,35 +283,53 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: end;
-  width: clamp(300px, 100vw, 696px);
-  border: 2px solid var(--main-text-color);
+  width: clamp(300px, 100%, 696px);
+  border-right: 2px solid var(--main-text-color);
+  border-bottom: 2px solid var(--main-text-color);
+  border-left: 2px solid var(--main-text-color);
   border-top: none;
-  padding: 25px 27px 25px 25px;
+  padding: 24px 27px 25px 25px;
   font-weight: var(--font-weight-main-text);
   font-size: 18px;
   font-style: normal;
   line-height: 21px;
   background-color: var(--main-background-color);
+  font-variation-settings: "wght" var(--font-weight-main-text);
 }
 
 @media (width>375px) {
   .article {
-    padding: 29px 21px 25px 25px;
+    padding: 28px 21px 25px 25px;
   }
 }
 
-.article .article__text:nth-child(1) {
+.article__text:nth-child(1) {
   padding-block-end: 27px;
 }
 
-.article .article__text:nth-child(2) {
+.article__text:nth-child(2) {
   width: 100%;
   padding-block-end: 25px;
+}
+
+@media (width<376px) {
+  .card:nth-last-child(3) .article .article__text:nth-child(1) {
+    padding-right: 19px;
+  }
+}
+
+@media (width<376px) {
+  .card:nth-last-child(2) .article {
+    padding-right: 24px;
+  }
 }
 
 .buttons {
   display: flex;
   justify-items: center;
+  max-height: 40px;
+  padding-block-start: 1px;
+  padding-block-end: 1px;
 }
 
 .card__icon-button {
@@ -326,7 +350,7 @@ button:focus-visible {
   position: relative;
   z-index: 1;
   color: var(--button-text-color);
-  font-family: "Press Start 2P", Arial, sans-serif;
+  font-family: var(--font-special), Arial, sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 90%;
@@ -340,7 +364,7 @@ button:focus-visible {
   border: 2px solid var(--main-text-color);
 }
 
-.card__like-button::after {
+.card__effect::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -353,7 +377,7 @@ button:focus-visible {
   transform-origin: left;
 }
 
-.card__like-button:hover::after {
+.card__effect:hover::after {
   transform: translate(0);
 }
 
@@ -361,7 +385,7 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: clamp(300px, 100vw, 696px);
+  width: clamp(300px, 100%, 696px);
   padding: 50px 0px clamp(102px, 102px, 106px) 0px;
   font-weight: var(--font-weight-main-text);
   font-size: 18px;
@@ -384,24 +408,6 @@ button:focus-visible {
   .card__footer-button {
     padding: 15px 20px;
   }
-}
-
-.card__footer-button::after {
-  content: "";
-  position: absolute;
-  top: 0px;
-  right: -2px;
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--main-text-color);
-  transition: transform 0.5s ease-in-out;
-  transform: translate(-100%);
-  transform-origin: left;
-}
-
-.card__footer-button:hover::after {
-  transform: translate(0);
 }
 
 .card__footer-button .button__text {
@@ -431,13 +437,6 @@ button:focus-visible {
 }
 
 @media (width >375px) {
-  .card__footer-button::after {
-    width: 335px;
-    height: 59px;
-  }
-}
-
-@media (width >375px) {
   .card__footer-button .button__text {
     padding-inline-start: 8px;
     padding-block-start: 0px;
@@ -460,47 +459,58 @@ dialog::backdrop {
   background-color: rgb(0 0 0 / 0.75);
 }
 
-.dialog__button {
+form{
   position: relative;
   display: flex;
-  flex-direction: column;
   grid-column-start: 1;
   grid-column-end: 3;
   justify-content: center;
   align-items: center;
-  width: clamp(257px, 100vh, 293px);
+  min-height: 38px;
+  min-width: 261px;
+  overflow: hidden;
+  text-transform: uppercase;
   border: 2px solid var(--main-text-color);
-  padding: 15px 20px;
+  box-sizing: border-box;
+}
+
+
+
+.dialog__bt {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 38px;
+  width:100%;
+  padding: 0px;
   overflow: hidden;
   text-transform: uppercase;
 }
 
-.dialog__button::after {
-  content: "";
-  position: absolute;
-  top: 0px;
-  right: -2px;
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--main-text-color);
-  transition: transform 0.5s ease-in-out;
-  transform: translate(-100%);
-  transform-origin: left;
-}
-
-.dialog__button:hover::after {
-  transform: translate(0);
-}
-
 dialog:is([open]) {
   display: grid;
-  grid-template-columns: 39px clamp(198px, 50vh, 234px);
+  grid-template-columns: 39px min-content;
   align-items: center;
   row-gap: 30px;
   column-gap: 20px;
   border: var(--main-text-color) 2px solid;
-  padding: 24px 30px;
+  padding: 28px 18px 28px 38px;
+  min-height: 195px;
+}
+
+@media (width>375px){
+  dialog:is([open]) {
+    min-height: 197px;
+    padding: 28px 28px;
+  }
+}
+
+@media(width>375px){
+  form{
+  min-width: 297px;
+  min-height: 42px;
+  }
 }
 
 .dialog_text {
@@ -508,9 +518,16 @@ dialog:is([open]) {
   grid-column-start: 2;
   grid-column-end: 3;
   align-items: center;
-  width: clamp(198px, 50vh, 200px);
+  min-width: 198px;
+  min-height: 63px;
   line-height: 150%;
   text-transform: uppercase;
+}
+
+@media(width>375px){
+  .dialog_text{
+    padding-right: 10px;
+  }
 }
 
 .footer-icon {
