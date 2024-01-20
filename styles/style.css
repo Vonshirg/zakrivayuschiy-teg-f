@@ -30,12 +30,12 @@
 }
 
 .header {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
   padding-top: 100px;
   padding-bottom: 100px;
-  width: 100%;
-  display: flex;
-  align-content: center;
-  justify-content: center;
 }
 
 .header__cover {
@@ -51,17 +51,17 @@
   background-color: var(--main-background-color);
 }
 
-@media(width>375px){
-  .header__cover{
+@media (width>375px) {
+  .header__cover {
     padding-top: 136px;
   }
 }
 
 .main-title {
+  justify-self: center;
   padding-bottom: 20px;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   text-transform: uppercase;
-  justify-self: center;
 }
 
 .sub-title {
@@ -96,11 +96,11 @@
 }
 
 button {
+  border: none;
   overflow: hidden;
   background: none;
   transition: box-shadow 0.3s ease;
   cursor: pointer;
-  border: none;
 }
 
 button:focus {
@@ -153,28 +153,28 @@ button:focus-visible {
   animation: arrow 0.5s ease-in-out alternate infinite;
 }
 
-.main{
-  width: 100%;
+.main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .card {
+  width: clamp(320px, 100%, 696px);
   padding-bottom: 50px;
   color: var(--main-text-color);
   font-family: "Inter", Arial, sans-serif;
-  width: clamp(320px, 100%, 696px);
-  }
+}
 
 .card:nth-last-child(2) {
   padding-bottom: 0;
 }
 
 .section__title {
+  max-width: 696px;
   border: 2px solid var(--main-text-color);
   border-bottom: none;
-  max-width: 696px;
   padding: 4px 10px;
   font-weight: var(--font-weight-title-text);
   font-size: 18px;
@@ -201,11 +201,11 @@ button:focus-visible {
 
 .image {
   position: absolute;
+  top: 25px;
+  right: clamp(10px, 0.4vw, 25px);
   display: flex;
   justify-content: end;
   align-items: start;
-  top: 25px;
-  right: clamp(10px, 0.4vw, 25px);
   opacity: 0.5;
   color: var(--main-text-color);
   font-family: var(--font-special), "fantasy", sans-serif;
@@ -284,10 +284,10 @@ button:focus-visible {
   flex-direction: column;
   align-items: end;
   width: clamp(300px, 100%, 696px);
+  border-top: none;
   border-right: 2px solid var(--main-text-color);
   border-bottom: 2px solid var(--main-text-color);
   border-left: 2px solid var(--main-text-color);
-  border-top: none;
   padding: 24px 27px 25px 25px;
   font-weight: var(--font-weight-main-text);
   font-size: 18px;
@@ -459,30 +459,28 @@ dialog::backdrop {
   background-color: rgb(0 0 0 / 0.75);
 }
 
-form{
+form {
   position: relative;
   display: flex;
   grid-column-start: 1;
   grid-column-end: 3;
   justify-content: center;
   align-items: center;
-  min-height: 38px;
+  box-sizing: border-box;
   min-width: 261px;
+  min-height: 38px;
+  border: 2px solid var(--main-text-color);
   overflow: hidden;
   text-transform: uppercase;
-  border: 2px solid var(--main-text-color);
-  box-sizing: border-box;
 }
-
-
 
 .dialog__bt {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   min-height: 38px;
-  width:100%;
   padding: 0px;
   overflow: hidden;
   text-transform: uppercase;
@@ -494,22 +492,22 @@ dialog:is([open]) {
   align-items: center;
   row-gap: 30px;
   column-gap: 20px;
+  min-height: 195px;
   border: var(--main-text-color) 2px solid;
   padding: 28px 18px 28px 38px;
-  min-height: 195px;
 }
 
-@media (width>375px){
+@media (width>375px) {
   dialog:is([open]) {
     min-height: 197px;
     padding: 28px 28px;
   }
 }
 
-@media(width>375px){
-  form{
-  min-width: 297px;
-  min-height: 42px;
+@media (width>375px) {
+  form {
+    min-width: 297px;
+    min-height: 42px;
   }
 }
 
@@ -524,8 +522,8 @@ dialog:is([open]) {
   text-transform: uppercase;
 }
 
-@media(width>375px){
-  .dialog_text{
+@media (width>375px) {
+  .dialog_text {
     padding-right: 10px;
   }
 }
