@@ -288,7 +288,7 @@ button:focus-visible {
   border-right: 2px solid var(--main-text-color);
   border-bottom: 2px solid var(--main-text-color);
   border-left: 2px solid var(--main-text-color);
-  padding: 24px 27px 25px 25px;
+  padding: 25px 27px 25px 25px;
   font-weight: var(--font-weight-main-text);
   font-size: 18px;
   font-style: normal;
@@ -299,7 +299,7 @@ button:focus-visible {
 
 @media (width>375px) {
   .article {
-    padding: 28px 21px 25px 25px;
+    padding: 29px 21px 25px 25px;
   }
 }
 
