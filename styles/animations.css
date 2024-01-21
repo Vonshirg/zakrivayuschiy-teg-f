@@ -93,9 +93,9 @@
 
 @keyframes arrow {
   0% {
-    margin-inline-end: 0px;
+    margin-inline-start: 0px;
   }
   100% {
-    margin-inline-end: 4px;
+    margin-inline-start: 4px;
   }
 }

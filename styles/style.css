@@ -148,8 +148,8 @@ button:focus-visible {
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
-  right: 90px;
   bottom: 2px;
+  left: -20px;
   animation: arrow 0.5s ease-in-out alternate infinite;
 }
 
@@ -233,12 +233,10 @@ button:focus-visible {
 }
 
 .grayscale {
-  object-position: center;
   filter: grayscale(0.8);
 }
 
 .saturate {
-  object-position: center;
   filter: saturate(158%);
 }
 
@@ -247,7 +245,6 @@ button:focus-visible {
 }
 
 .sepia {
-  object-position: center;
   filter: sepia(80%);
 }
 
@@ -446,13 +443,11 @@ button:focus-visible {
 dialog {
   position: fixed;
   inset: 0;
+  min-width: none;
+  max-width: none;
   border-width: 1px;
   background-color: var(--main-background-color);
   transition: opacity 0.3s ease-in-out;
-  max-inline-size: 357px;
-  min-inline-size: 341px;
-  max-block-size: 195px;
-  min-block-size: 193px;
 }
 
 dialog::backdrop {
@@ -467,9 +462,6 @@ form {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  min-width: 261px;
-  min-height: 38px;
-  border: 2px solid var(--main-text-color);
   overflow: hidden;
   text-transform: uppercase;
 }
@@ -480,35 +472,19 @@ form {
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 38px;
-  padding: 0px;
-  overflow: hidden;
+  border: 2px solid var(--main-text-color);
+  padding: 11px 17px;
   text-transform: uppercase;
 }
 
 dialog:is([open]) {
   display: grid;
-  grid-template-columns: 39px min-content;
+  grid-template-columns: 39px 198px;
   align-items: center;
   row-gap: 30px;
   column-gap: 20px;
-  min-height: 195px;
   border: var(--main-text-color) 2px solid;
-  padding: 28px 18px 28px 38px;
-}
-
-@media (width>375px) {
-  dialog:is([open]) {
-    min-height: 197px;
-    padding: 28px 28px;
-  }
-}
-
-@media (width>375px) {
-  form {
-    min-width: 297px;
-    min-height: 42px;
-  }
+  padding: 30px 40px 30px 40px;
 }
 
 .dialog_text {
@@ -516,15 +492,20 @@ dialog:is([open]) {
   grid-column-start: 2;
   grid-column-end: 3;
   align-items: center;
-  min-width: 198px;
-  min-height: 63px;
+  height: max-content;
   line-height: 150%;
   text-transform: uppercase;
 }
 
 @media (width>375px) {
-  .dialog_text {
-    padding-right: 10px;
+  dialog:is([open]) {
+    grid-template-columns: 39px 234px;
+  }
+}
+
+@media (width>375px) {
+  dialog:is([open]) {
+    padding: 29px 30px 29px 30px;
   }
 }
 
